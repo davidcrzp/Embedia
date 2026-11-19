@@ -5,7 +5,6 @@ import { initCurrency } from '../lib/currency';
 import HomeView from './views/HomeView';
 import type { Producto } from '../lib/types';
 
-// Carga diferida: estas vistas solo se montan cuando el usuario navega a ellas.
 const CategoriaView = lazy(() => import('./views/CategoriaView'));
 const CarritoView  = lazy(() => import('./views/CarritoView'));
 const CheckoutView = lazy(() => import('./views/CheckoutView'));

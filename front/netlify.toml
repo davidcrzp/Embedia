@@ -5,16 +5,22 @@
 [build.environment]
   NODE_VERSION = "20"
   BUN_VERSION = "1.1"
-  # Requeridas (configurar en Netlify UI → Site settings → Environment variables):
-  #   PUBLIC_BACKEND_URL = https://<tu-backend>.up.railway.app
-  #   BACKEND_URL        = https://<tu-backend>.up.railway.app
-  #   PUBLIC_SITE_URL    = https://embedia.netlify.app
-  #   PUBLIC_MP_PUBLIC_KEY = <mp-public-key>
 
 [[headers]]
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/manifest+json"
 
 [[headers]]
   for = "/*"
@@ -23,5 +29,4 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
     X-Frame-Options = "DENY"
-    # CSP mínima (fonts/MP/OSM). Ajustar si añades terceros.
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.mercadopago.com; frame-src 'self' https://www.mercadopago.com; connect-src 'self' https:;"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.mercadopago.com; frame-src 'self' https://www.mercadopago.com; connect-src 'self' https:; worker-src 'self'; manifest-src 'self';"

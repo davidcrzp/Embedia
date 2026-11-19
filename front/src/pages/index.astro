@@ -22,7 +22,6 @@ try {
   initialProductos = Array.isArray(json?.data?.productos) ? json.data.productos : [];
 } catch { initialProductos = []; }
 
-// preloadImage debe coincidir EXACTAMENTE con el `src` que calcula `imgUrl()`.
 const publicBackend = String(import.meta.env.PUBLIC_BACKEND_URL ?? '').trim();
 const firstImage = initialProductos[0]?.imagen;
 const preloadImage =

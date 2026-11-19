@@ -1,0 +1,1 @@
+import{c as a}from"./cn.d2XQ1MEC.js";import{u as r}from"./jsxRuntime.module.BmzItdFi.js";function o({class:e,...t}){return r("label",{class:a("text-label font-medium uppercase text-muted",e),...t})}export{o as L};

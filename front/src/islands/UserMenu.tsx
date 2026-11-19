@@ -39,7 +39,7 @@ export default function UserMenu() {
         </div>
         <Button variant="ghost" size="sm" onClick={logout} class="font-mono text-xs uppercase tracking-wider">Salir</Button>
       </div>
-      <button type="button" onClick={() => setOpen((v) => !v)} aria-haspopup="menu" aria-expanded={open} aria-label="Menú de cuenta"
+      <button type="button" onClick={() => setOpen((v) => !v)} aria-haspopup="menu" aria-expanded={open}
         class="flex items-center gap-2 rounded-sm border border-border bg-transparent px-2 py-1 text-left transition-colors hover:border-border-strong hover:bg-elevated md:hidden">
         <div class="min-w-0 max-w-[130px]">
           <p class="truncate text-xs font-medium leading-tight text-foreground">{u.nombre}</p>

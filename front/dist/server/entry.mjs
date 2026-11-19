@@ -1,0 +1,42 @@
+import { renderers } from './renderers.mjs';
+import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_BNCN8g7K.mjs';
+import { manifest } from './manifest_DA91xzjJ.mjs';
+
+const _page0 = () => import('./pages/_image.astro.mjs');
+const _page1 = () => import('./pages/admin.astro.mjs');
+const _page2 = () => import('./pages/login.astro.mjs');
+const _page3 = () => import('./pages/robots.txt.astro.mjs');
+const _page4 = () => import('./pages/index.astro.mjs');
+
+const pageMap = new Map([
+    ["node_modules/astro/dist/assets/endpoint/node.js", _page0],
+    ["src/pages/admin.astro", _page1],
+    ["src/pages/login.astro", _page2],
+    ["src/pages/robots.txt.ts", _page3],
+    ["src/pages/index.astro", _page4]
+]);
+const serverIslandMap = new Map();
+const _manifest = Object.assign(manifest, {
+    pageMap,
+    serverIslandMap,
+    renderers,
+    middleware: () => import('./_astro-internal_middleware.mjs')
+});
+const _args = {
+    "mode": "standalone",
+    "client": "file:///home/orange/Projects/PW2/PWA/front/dist/client/",
+    "server": "file:///home/orange/Projects/PW2/PWA/front/dist/server/",
+    "host": true,
+    "port": 5173,
+    "assets": "_astro"
+};
+const _exports = createExports(_manifest, _args);
+const handler = _exports['handler'];
+const startServer = _exports['startServer'];
+const options = _exports['options'];
+const _start = 'start';
+{
+	serverEntrypointModule[_start](_manifest, _args);
+}
+
+export { handler, options, pageMap, startServer };

@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { pwaInfo } from 'virtual:pwa-info';
+
 interface Props {
   title?: string;
   description?: string;
@@ -7,6 +9,7 @@ interface Props {
   image?: string;
   preloadImage?: string;
 }
+
 const {
   title = 'Embedia — Componentes y SBC para sistemas embebidos',
   description = 'Compra microcontroladores, SBC, sensores y herramientas de laboratorio. Envío en 24h y pago con tarjeta u OXXO.',
@@ -20,7 +23,6 @@ const canonical = new URL(Astro.url.pathname, site).toString();
 const ogImage = new URL(image, site).toString();
 const robots = noindex ? 'noindex,nofollow' : 'index,follow';
 
-// [CHANGED] Preconnect al backend (para img/graphql cross-origin).
 const backendOrigin = (() => {
   const raw = String(import.meta.env.PUBLIC_BACKEND_URL ?? '').trim();
   if (!raw) return '';
@@ -34,7 +36,6 @@ const jsonLd = {
     { '@type': 'WebSite', name: 'Embedia', url: site.toString() },
   ],
 };
-import { pwaInfo } from 'virtual:pwa-info';
 ---
 <!doctype html>
 <html lang="es">
@@ -46,7 +47,10 @@ import { pwaInfo } from 'virtual:pwa-info';
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/pwa-192x192.png" />
     <title>{title}</title>
+
+    {pwaInfo && pwaInfo.webManifest && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Embedia" />
@@ -64,37 +68,23 @@ import { pwaInfo } from 'virtual:pwa-info';
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
     <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
     </noscript>
 
-    {preloadImage && (
-      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
-    )}
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-      {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-</head>
+  </head>
   <body class="min-h-screen bg-background text-foreground antialiased font-sans">
     <a href="#main" class="skip-link">Saltar al contenido</a>
     <slot />
-  <script>
-  import { registerSW } from "virtual:pwa-register";
-  registerSW({ immediate: true });
-</script>
-</body>
+
+    <script>
+      import { registerSW } from 'virtual:pwa-register';
+      registerSW({ immediate: true });
+    </script>
+  </body>
 </html>

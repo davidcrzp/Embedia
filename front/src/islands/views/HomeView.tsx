@@ -13,9 +13,6 @@ let ssrConsumed = false;
 
 export default function HomeView({ initialProductos }: { initialProductos?: Producto[] } = {}) {
   const initial = initialProductos ?? [];
-  // Si la página se SSR con productos (gracias a prerender:false + fetch al backend),
-  // aquí bootstrap=true → NO refetch. Sin esto, el cliente pedía /graphql y el LCP
-  // se caía a >4s.
   const bootstrap = !ssrConsumed && initial.length > 0;
   const [productos, setProductos] = useState<Producto[]>(bootstrap ? initial : []);
   const [offset, setOffset] = useState(bootstrap ? initial.length : 0);
