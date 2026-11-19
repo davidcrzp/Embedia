@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from 'preact/hooks';
-import { w as productoModal, m as cartItems, h as imgUrl, B as Button, x as addToCart, q as irAlCarrito } from './Footer_BKSbCEz3.mjs';
-import { f as formatPrecioDisplay } from './index_B7izgKdV.mjs';
+import { w as productoModal, m as cartItems, h as imgUrl, B as Button, x as addToCart, q as irAlCarrito } from './Footer_CJBpYwEF.mjs';
+import { f as formatPrecioDisplay } from './index_Dj9m4xvh.mjs';
 import { jsx, jsxs } from 'preact/jsx-runtime';
-import { I as Input } from './input_CIh5QF4k.mjs';
+import { I as Input } from './input_Cw01B35N.mjs';
 
 function Dialog({
   open,

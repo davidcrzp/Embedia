@@ -1,4 +1,4 @@
-import { b as cn } from './Footer_BKSbCEz3.mjs';
+import { b as cn } from './Footer_CJBpYwEF.mjs';
 import { jsx } from 'preact/jsx-runtime';
 
 function Input({

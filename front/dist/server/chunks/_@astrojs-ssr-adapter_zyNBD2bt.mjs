@@ -1,12 +1,12 @@
 import { Http2ServerResponse } from 'node:http2';
 import { R as ROUTE_TYPE_HEADER, h as REROUTE_DIRECTIVE_HEADER, i as decryptString, j as createSlotValueFromString, d as renderComponent, r as renderTemplate, D as DEFAULT_404_COMPONENT, k as clientLocalsSymbol, l as clientAddressSymbol, n as REROUTABLE_STATUS_CODES, o as responseSentSymbol } from './astro/server_O3v_sucX.mjs';
-import { r as requestIs404Or500, n as notFound, a as normalizeTheLocale, b as redirectToFallback, c as redirectToDefaultLocale, d as requestHasLocale, e as defineMiddleware, R as RouteCache, s as sequence, f as findRouteToRewrite, m as matchRoute, g as RenderContext, h as getSetCookiesFromResponse } from './render-context_CMf2s-oZ.mjs';
+import { r as requestIs404Or500, n as notFound, a as normalizeTheLocale, b as redirectToFallback, c as redirectToDefaultLocale, d as requestHasLocale, e as defineMiddleware, R as RouteCache, s as sequence, f as findRouteToRewrite, m as matchRoute, g as RenderContext, h as getSetCookiesFromResponse } from './render-context_DzXuQm3P.mjs';
 import 'cookie';
 import { A as AstroError, L as LocalsNotAnObject } from './astro/assets-service_BZIICsh3.mjs';
 import { bold, red, yellow, dim, blue } from 'kleur/colors';
 import { N as NOOP_MIDDLEWARE_FN } from './noop-middleware_F0FVQw6Y.mjs';
 import { fileExtension, joinPaths, slash, prependForwardSlash as prependForwardSlash$1, removeTrailingForwardSlash, appendForwardSlash as appendForwardSlash$1 } from '@astrojs/internal-helpers/path';
-import { e as ensure404Route, D as DEFAULT_404_ROUTE, d as default404Instance } from './astro-designed-error-pages_D6_NYAOI.mjs';
+import { e as ensure404Route, D as DEFAULT_404_ROUTE, d as default404Instance } from './astro-designed-error-pages_B_FRPK4B.mjs';
 import 'es-module-lexer';
 import { AsyncLocalStorage } from 'node:async_hooks';
 import fs from 'node:fs';

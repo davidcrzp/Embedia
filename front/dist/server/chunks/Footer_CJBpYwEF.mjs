@@ -200,7 +200,7 @@ function PedidosBadge() {
   });
 }
 
-const RAW_BACKEND = String("").trim().replace(/\/+$/, "");
+const RAW_BACKEND = String("https://embedia-production.up.railway.app/").trim().replace(/\/+$/, "");
 function backendUrl(path) {
   const p = path.startsWith("/") ? path : `/${path}`;
   return RAW_BACKEND ? `${RAW_BACKEND}${p}` : p;

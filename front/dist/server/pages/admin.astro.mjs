@@ -1,7 +1,7 @@
 import { c as createAstro, a as createComponent, m as maybeRenderHead, r as renderTemplate, d as renderComponent } from '../chunks/astro/server_O3v_sucX.mjs';
 import 'kleur/colors';
-import { $ as $$Base } from '../chunks/Base_BFlhnPro.mjs';
-import { $ as $$TopBar, a as $$Footer } from '../chunks/Footer_BKSbCEz3.mjs';
+import { $ as $$Base } from '../chunks/Base_BSHzEN2f.mjs';
+import { $ as $$TopBar, a as $$Footer } from '../chunks/Footer_CJBpYwEF.mjs';
 import 'clsx';
 export { renderers } from '../renderers.mjs';
 

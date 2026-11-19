@@ -1,11 +1,11 @@
-import { e as defineMiddleware, s as sequence } from './chunks/render-context_CMf2s-oZ.mjs';
+import { e as defineMiddleware, s as sequence } from './chunks/render-context_DzXuQm3P.mjs';
 import 'es-module-lexer';
-import './chunks/astro-designed-error-pages_D6_NYAOI.mjs';
+import './chunks/astro-designed-error-pages_B_FRPK4B.mjs';
 import '@astrojs/internal-helpers/path';
 import 'cookie';
 
-const BACKEND = "http://localhost:4000";
-const PUBLIC_BACKEND_URL = String("").trim();
+const BACKEND = "https://embedia-production.up.railway.app/";
+const PUBLIC_BACKEND_URL = String("https://embedia-production.up.railway.app/").trim();
 const PROXY_EXACT = ["/graphql"];
 const PROXY_PREFIX = ["/auth", "/api", "/upload", "/uploads"];
 const onRequest$1 = defineMiddleware(async (context, next) => {

@@ -1,7 +1,7 @@
 import { a as createComponent, m as maybeRenderHead, d as renderComponent, r as renderTemplate, b as addAttribute } from './astro/server_O3v_sucX.mjs';
 import 'kleur/colors';
-import { $ as $$Base } from './Base_BFlhnPro.mjs';
-import { c as categoriaSeleccionada, i as irAHome, b as cn, e as elegirCategoria, d as cartTotal, f as cartCount, g as catalogVersion, B as Button, p as productImageSrcSet, h as imgUrl, j as abrirProductoModal, k as gql, v as view, l as bootstrapAuth, $ as $$TopBar, a as $$Footer } from './Footer_BKSbCEz3.mjs';
+import { $ as $$Base } from './Base_BSHzEN2f.mjs';
+import { c as categoriaSeleccionada, i as irAHome, b as cn, e as elegirCategoria, d as cartTotal, f as cartCount, g as catalogVersion, B as Button, p as productImageSrcSet, h as imgUrl, j as abrirProductoModal, k as gql, v as view, l as bootstrapAuth, $ as $$TopBar, a as $$Footer } from './Footer_CJBpYwEF.mjs';
 import { jsx, jsxs, Fragment } from 'preact/jsx-runtime';
 import 'clsx';
 import { signal, computed } from '@preact/signals';
@@ -44,7 +44,7 @@ function SidebarList({
 }
 
 const $$Sidebar = createComponent(async ($$result, $$props, $$slots) => {
-  const BACKEND = "http://localhost:4000";
+  const BACKEND = "https://embedia-production.up.railway.app/";
   let categorias = [];
   try {
     const res = await fetch(`${BACKEND}/graphql`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ query: "{ categorias { id nombre } }" }) });
@@ -578,11 +578,11 @@ function HomeView({
   });
 }
 
-const CategoriaView = lazy(() => import('./CategoriaView_ZJF_mGQ_.mjs'));
-const CarritoView = lazy(() => import('./CarritoView_DzZC4QNv.mjs'));
-const CheckoutView = lazy(() => import('./CheckoutView_BJ3tY8ia.mjs'));
-const PedidosView = lazy(() => import('./PedidosView_CmfuLGlX.mjs'));
-const ProductModal = lazy(() => import('./ProductModal_2HZuS46k.mjs'));
+const CategoriaView = lazy(() => import('./CategoriaView_Cee0UXzk.mjs'));
+const CarritoView = lazy(() => import('./CarritoView_DNovHYtQ.mjs'));
+const CheckoutView = lazy(() => import('./CheckoutView_BUXlV_0p.mjs'));
+const PedidosView = lazy(() => import('./PedidosView_CUkQV4lZ.mjs'));
+const ProductModal = lazy(() => import('./ProductModal_DDg_iMgX.mjs'));
 const Fallback = () => jsxs("div", {
   class: "flex items-center justify-center gap-3 py-16 font-mono text-xs uppercase tracking-wider text-muted",
   children: [jsx("span", {
@@ -616,7 +616,7 @@ function ShopApp({
 
 const prerender = false;
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
-  const BACKEND = "http://localhost:4000";
+  const BACKEND = "https://embedia-production.up.railway.app/";
   let initialProductos = [];
   try {
     const res = await fetch(`${BACKEND}/graphql`, {
@@ -629,7 +629,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   } catch {
     initialProductos = [];
   }
-  const publicBackend = String("").trim();
+  const publicBackend = String("https://embedia-production.up.railway.app/").trim();
   const firstImage = initialProductos[0]?.imagen;
   const preloadImage = typeof firstImage === "string" && firstImage.length > 0 ? /^https?:\/\//.test(firstImage) ? firstImage : publicBackend ? `${publicBackend}${firstImage}` : firstImage : "";
   return renderTemplate`${renderComponent($$result, "Base", $$Base, { "title": "Embedia — Componentes y SBC para sistemas embebidos", "description": "Compra microcontroladores, SBC, sensores y herramientas de laboratorio. Envío en 24h y pago con tarjeta u OXXO.", "preloadImage": preloadImage }, { "default": async ($$result2) => renderTemplate` ${renderComponent($$result2, "TopBar", $$TopBar, {})} ${maybeRenderHead()}<div class="mx-auto max-w-[1400px] px-4 sm:px-6"> <div class="grid grid-cols-1 gap-6 py-4 sm:py-6 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-8 xl:grid-cols-[200px_minmax(0,1fr)_240px]"> ${renderComponent($$result2, "Sidebar", $$Sidebar, {})} <main id="main" class="min-w-0"> <div id="hero-wrap">${renderComponent($$result2, "Hero", $$Hero, {})}</div> ${renderComponent($$result2, "ShopApp", ShopApp, { "client:load": true, "initialProductos": initialProductos, "client:component-hydration": "load", "client:component-path": "/home/orange/Projects/PW2/PWA/front/src/islands/ShopApp.tsx", "client:component-export": "default" })} </main> ${renderComponent($$result2, "ContextPanel", $$ContextPanel, {})} </div> </div> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;

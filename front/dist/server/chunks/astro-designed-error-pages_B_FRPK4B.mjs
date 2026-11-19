@@ -5,7 +5,7 @@ import { D as DEFAULT_404_COMPONENT } from './astro/server_O3v_sucX.mjs';
 const ACTION_QUERY_PARAMS = {
   actionName: "_astroAction"};
 
-const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_API_URL": "/graphql", "PUBLIC_BACKEND_URL": "", "PUBLIC_MP_PUBLIC_KEY": "APP_USR-14dcc809-f94d-4741-9c71-54ac8f5eb5d8", "PUBLIC_SITE_URL": "http://localhost:4321", "SITE": "https://embedia.netlify.app", "SSR": true};
+const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_API_URL": "/graphql", "PUBLIC_BACKEND_URL": "https://embedia-production.up.railway.app/", "PUBLIC_MP_PUBLIC_KEY": "APP_USR-14dcc809-f94d-4741-9c71-54ac8f5eb5d8", "PUBLIC_SITE_URL": "http://localhost:4321", "SITE": "https://embedia.netlify.app", "SSR": true};
 const codeToStatusMap = {
   // Implemented from tRPC error code table
   // https://trpc.io/docs/server/error-handling#error-codes

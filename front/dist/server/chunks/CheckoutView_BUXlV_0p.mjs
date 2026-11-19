@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'preact/hooks';
-import { B as Button, b as cn, m as cartItems, d as cartTotal, o as currentUser, q as irAlCarrito, k as gql, s as clearCart, t as pedidoCreado } from './Footer_BKSbCEz3.mjs';
-import { a as formatPrecioMXN, b as CETIMap, c as currency } from './index_B7izgKdV.mjs';
+import { B as Button, b as cn, m as cartItems, d as cartTotal, o as currentUser, q as irAlCarrito, k as gql, s as clearCart, t as pedidoCreado } from './Footer_CJBpYwEF.mjs';
+import { a as formatPrecioMXN, b as CETIMap, c as currency } from './index_Dj9m4xvh.mjs';
 import { jsxs, jsx } from 'preact/jsx-runtime';
-import { I as Input } from './input_CIh5QF4k.mjs';
+import { I as Input } from './input_Cw01B35N.mjs';
 
 const CONTENEDOR_ID = "cardPaymentBrick_container";
 const READY_TIMEOUT_MS = 12e3;

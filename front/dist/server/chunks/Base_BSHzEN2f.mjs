@@ -24,7 +24,7 @@ const $$Base = createComponent(($$result, $$props, $$slots) => {
   const ogImage = new URL(image, site).toString();
   const robots = noindex ? "noindex,nofollow" : "index,follow";
   const backendOrigin = (() => {
-    const raw = String("").trim();
+    const raw = String("https://embedia-production.up.railway.app/").trim();
     if (!raw) return "";
     try {
       return new URL(raw).origin;

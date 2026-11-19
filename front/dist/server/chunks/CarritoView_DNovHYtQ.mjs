@@ -1,6 +1,6 @@
-import { u as updateCartQuantity, m as cartItems, f as cartCount, d as cartTotal, B as Button, i as irAHome, h as imgUrl, r as removeFromCart, n as irAlCheckout } from './Footer_BKSbCEz3.mjs';
-import { f as formatPrecioDisplay, C as CurrencySelector } from './index_B7izgKdV.mjs';
-import { I as Input } from './input_CIh5QF4k.mjs';
+import { u as updateCartQuantity, m as cartItems, f as cartCount, d as cartTotal, B as Button, i as irAHome, h as imgUrl, r as removeFromCart, n as irAlCheckout } from './Footer_CJBpYwEF.mjs';
+import { f as formatPrecioDisplay, C as CurrencySelector } from './index_Dj9m4xvh.mjs';
+import { I as Input } from './input_Cw01B35N.mjs';
 import { jsxs, jsx } from 'preact/jsx-runtime';
 
 function QuantityControl({

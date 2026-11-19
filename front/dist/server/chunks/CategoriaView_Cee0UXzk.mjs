@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'preact/hooks';
-import { c as categoriaSeleccionada, g as catalogVersion, i as irAHome, B as Button, p as productImageSrcSet, h as imgUrl, j as abrirProductoModal, k as gql } from './Footer_BKSbCEz3.mjs';
-import { S as Skeleton, f as formatPrecioDisplay, B as Badge } from './index_B7izgKdV.mjs';
+import { c as categoriaSeleccionada, g as catalogVersion, i as irAHome, B as Button, p as productImageSrcSet, h as imgUrl, j as abrirProductoModal, k as gql } from './Footer_CJBpYwEF.mjs';
+import { S as Skeleton, f as formatPrecioDisplay, B as Badge } from './index_Dj9m4xvh.mjs';
 import { jsxs, jsx } from 'preact/jsx-runtime';
 
 const PAGE_SIZE = 12;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks';
-import { o as currentUser, B as Button, i as irAHome, h as imgUrl, k as gql, A as ApiError } from './Footer_BKSbCEz3.mjs';
-import { S as Skeleton, d as formatTarjetaLabel, e as formatFecha, g as formatPrecio, m as metodoPagoLabel, B as Badge, s as statusVariant, b as CETIMap } from './index_B7izgKdV.mjs';
+import { o as currentUser, B as Button, i as irAHome, h as imgUrl, k as gql, A as ApiError } from './Footer_CJBpYwEF.mjs';
+import { S as Skeleton, d as formatTarjetaLabel, e as formatFecha, g as formatPrecio, m as metodoPagoLabel, B as Badge, s as statusVariant, b as CETIMap } from './index_Dj9m4xvh.mjs';
 import { jsxs, jsx } from 'preact/jsx-runtime';
 
 function copiar(texto) {
