@@ -1,0 +1,20 @@
+---
+import CartBadge from '../islands/CartBadge.tsx';
+import PedidosBadge from '../islands/PedidosBadge.tsx';
+import UserMenu from '../islands/UserMenu.tsx';
+---
+<header class="sticky top-0 z-40 border-b border-border bg-background">
+  <div class="mx-auto flex h-14 max-w-[1400px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
+    <a href="/" class="flex items-center gap-2 sm:gap-3">
+      <span class="grid h-7 w-7 place-items-center rounded-sm bg-primary font-mono text-xs font-bold text-primary-foreground" aria-hidden="true">E</span>
+      <div class="flex items-baseline gap-2">
+        <span class="text-sm font-bold uppercase tracking-[0.15em]">Embedia</span>
+        <span class="hidden text-label font-mono uppercase text-muted md:inline">/ Embedded Systems</span>
+      </div>
+    </a>
+    <div class="flex-1"></div>
+    <PedidosBadge client:idle />
+    <UserMenu client:idle />
+    <CartBadge client:idle />
+  </div>
+</header>

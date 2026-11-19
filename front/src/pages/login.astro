@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import LoginForm from '../islands/LoginForm.tsx';
+---
+<Base title="Acceder — Embedia" description="Inicia sesión en Embedia para gestionar tus pedidos y compras de componentes embebidos.">
+  <LoginForm client:only="preact" />
+</Base>

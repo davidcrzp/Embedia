@@ -1,0 +1,22 @@
+---
+import CartSummary from '../islands/CartSummary.tsx';
+import CETIMap from '../islands/CETIMap.tsx';
+import { CETI_DIRECCION, CETI_NOMBRE, CETI_OSM_URL } from '../lib/constants';
+---
+<aside class="hidden min-w-0 h-fit xl:sticky xl:top-20 xl:block xl:border-l xl:border-border xl:pl-6">
+  <p class="mb-4 text-label font-medium uppercase text-muted">Tu pedido</p>
+  <CartSummary client:idle />
+  <ul class="mt-6 space-y-2 border-t border-border pt-4 text-xs text-muted">
+    <li class="flex justify-between"><span>Envío</span><span class="text-foreground">Gratis +$100</span></li>
+    <li class="flex justify-between"><span>Garantía</span><span class="text-foreground">12 meses</span></li>
+    <li class="flex justify-between"><span>Pago</span><span class="text-foreground">Tarjeta · OXXO</span></li>
+  </ul>
+  <div class="mt-6 border-t border-border pt-4">
+    <p class="mb-2 text-label font-medium uppercase text-muted">Recoger en taller</p>
+    <CETIMap client:visible height={140} />
+    <p class="mt-2 text-[11px] leading-snug text-muted">{CETI_NOMBRE}</p>
+    <p class="text-[11px] leading-snug text-muted">{CETI_DIRECCION}</p>
+    <a href={CETI_OSM_URL} target="_blank" rel="noopener noreferrer"
+      class="mt-2 inline-block font-mono text-[10px] uppercase tracking-wider text-primary underline underline-offset-2 hover:text-primary-soft">Ver en OpenStreetMap →</a>
+  </div>
+</aside>

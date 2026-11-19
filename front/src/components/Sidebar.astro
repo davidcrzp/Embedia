@@ -1,0 +1,13 @@
+---
+import SidebarList from '../islands/SidebarList.tsx';
+const BACKEND = import.meta.env.BACKEND_URL ?? 'http://localhost:4000';
+let categorias: { id: string; nombre: string }[] = [];
+try {
+  const res = await fetch(`${BACKEND}/graphql`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: '{ categorias { id nombre } }' }) });
+  const json = await res.json(); categorias = Array.isArray(json?.data?.categorias) ? json.data.categorias : [];
+} catch { categorias = []; }
+---
+<aside class="min-w-0 h-fit border-b border-border pb-3 lg:sticky lg:top-20 lg:border-b-0 lg:border-r lg:pr-6 lg:pb-0">
+  <p class="mb-3 hidden text-label font-medium uppercase text-muted lg:block">Catálogo</p>
+  <SidebarList client:visible categorias={categorias} />
+</aside>

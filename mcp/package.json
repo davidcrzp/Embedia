@@ -1,0 +1,17 @@
+{
+  "name": "embedia-mcp",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "http": "bun run src/http.ts",
+    "login": "bun run scripts/login.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "hono": "^4.5.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": { "@types/bun": "latest" }
+}

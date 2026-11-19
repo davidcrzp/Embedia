@@ -1,0 +1,14 @@
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { registerTools } from './tools.ts';
+import { registerResources } from './resources.ts';
+import { registerPrompts } from './prompts.ts';
+const server = new McpServer({ name: 'embedia-mcp', version: '1.0.0' }, { capabilities: { tools: {}, resources: {}, prompts: {} } });
+registerTools(server);
+registerResources(server);
+registerPrompts(server);
+const transport = new StdioServerTransport();
+await server.connect(transport);
+console.error('[mcp] Embedia MCP server activo (stdio)');
+console.error(`[mcp] BACKEND_URL=${process.env.BACKEND_URL ?? 'http://localhost:4000'}`);
+console.error(`[mcp] MCP_ALLOW_WRITES=${process.env.MCP_ALLOW_WRITES ?? 'false'}`);

@@ -1,0 +1,54 @@
+---
+export const prerender = false;
+import Base from '../layouts/Base.astro';
+import TopBar from '../components/TopBar.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Hero from '../components/Hero.astro';
+import ContextPanel from '../components/ContextPanel.astro';
+import Footer from '../components/Footer.astro';
+import ShopApp from '../islands/ShopApp.tsx';
+
+const BACKEND = import.meta.env.BACKEND_URL ?? 'http://localhost:4000';
+
+type ProductoSSR = { id: string; nombre: string; precio: number; imagen?: string | null; stock: number; categoria?: { id: string; nombre: string } };
+let initialProductos: ProductoSSR[] = [];
+try {
+  const res = await fetch(`${BACKEND}/graphql`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: '{ productos(limit: 12, offset: 0) { id nombre precio imagen stock categoria { id nombre } } }' }),
+  });
+  const json = await res.json();
+  initialProductos = Array.isArray(json?.data?.productos) ? json.data.productos : [];
+} catch { initialProductos = []; }
+
+// preloadImage debe coincidir EXACTAMENTE con el `src` que calcula `imgUrl()`.
+const publicBackend = String(import.meta.env.PUBLIC_BACKEND_URL ?? '').trim();
+const firstImage = initialProductos[0]?.imagen;
+const preloadImage =
+  typeof firstImage === 'string' && firstImage.length > 0
+    ? /^https?:\/\//.test(firstImage)
+      ? firstImage
+      : publicBackend
+        ? `${publicBackend}${firstImage}`
+        : firstImage
+    : '';
+---
+<Base
+  title="Embedia — Componentes y SBC para sistemas embebidos"
+  description="Compra microcontroladores, SBC, sensores y herramientas de laboratorio. Envío en 24h y pago con tarjeta u OXXO."
+  preloadImage={preloadImage}
+>
+  <TopBar />
+  <div class="mx-auto max-w-[1400px] px-4 sm:px-6">
+    <div class="grid grid-cols-1 gap-6 py-4 sm:py-6 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-8 xl:grid-cols-[200px_minmax(0,1fr)_240px]">
+      <Sidebar />
+      <main id="main" class="min-w-0">
+        <div id="hero-wrap"><Hero /></div>
+        <ShopApp client:load initialProductos={initialProductos} />
+      </main>
+      <ContextPanel />
+    </div>
+  </div>
+  <Footer />
+</Base>

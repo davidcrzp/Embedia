@@ -1,0 +1,11 @@
+---
+interface Props { nombre: string; rol: string }
+const { nombre, rol } = Astro.props;
+---
+<header class="border-b border-border pb-4">
+  <p class="mb-2 font-mono text-label uppercase text-primary">● Panel administrativo</p>
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <h1 class="text-heading font-bold">Dashboard</h1>
+    <span class="font-mono text-xs text-muted">{nombre} · <span class="text-primary">{rol}</span></span>
+  </div>
+</header>
