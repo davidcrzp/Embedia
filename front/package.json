@@ -7,8 +7,7 @@
     "build": "ASTRO_LOCAL_PREVIEW=1 astro build",
     "build:deploy": "astro build",
     "preview": "PORT=4321 bun ./dist/server/entry.mjs",
-    "astro": "astro",
-    "lighthouse": "bunx lighthouse http://localhost:4321 --preset=mobile --quiet --chrome-flags=\"--headless --no-sandbox\""
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/netlify": "^5.5.0",

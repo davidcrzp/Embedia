@@ -25,12 +25,10 @@ export default defineConfig({
       manifest: {
         name: 'Embedia — Componentes y SBC para sistemas embebidos',
         short_name: 'Embedia',
-        description:
-          'Compra microcontroladores, SBC, sensores y herramientas de laboratorio. Envío en 24h y pago con tarjeta u OXXO.',
+        description: 'Compra microcontroladores, SBC, sensores y herramientas de laboratorio.',
         start_url: '/',
         scope: '/',
         display: 'standalone',
-        orientation: 'portrait',
         theme_color: '#ff6b1a',
         background_color: '#0a0a0a',
         icons: [
@@ -47,18 +45,12 @@ export default defineConfig({
           {
             urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
             handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts',
-              expiration: { maxEntries: 20, maxAgeSeconds: 31536000 },
-            },
+            options: { cacheName: 'google-fonts', expiration: { maxEntries: 20, maxAgeSeconds: 31536000 } },
           },
           {
             urlPattern: /\/uploads\/.*\.(png|jpg|jpeg|webp|svg)$/i,
             handler: 'CacheFirst',
-            options: {
-              cacheName: 'product-images',
-              expiration: { maxEntries: 60, maxAgeSeconds: 604800 },
-            },
+            options: { cacheName: 'product-images', expiration: { maxEntries: 60, maxAgeSeconds: 604800 } },
           },
         ],
       },
@@ -74,9 +66,9 @@ export default defineConfig({
       port: 5173,
       proxy: {
         '/graphql': { target: BACKEND, changeOrigin: false },
-        '/auth':    { target: BACKEND, changeOrigin: false },
-        '/api':     { target: BACKEND, changeOrigin: false },
-        '/upload':  { target: BACKEND, changeOrigin: false },
+        '/auth': { target: BACKEND, changeOrigin: false },
+        '/api': { target: BACKEND, changeOrigin: false },
+        '/upload': { target: BACKEND, changeOrigin: false },
         '/uploads': { target: BACKEND, changeOrigin: false },
       },
     },

@@ -6,11 +6,7 @@
     "dev": "bun run --watch src/index.ts",
     "start": "bun run src/index.ts",
     "db:ensure": "bun run src/scripts/ensure-db.ts",
-    "init-db": "bun run src/scripts/reset-db.ts",
-    "db:reset": "bun run src/scripts/reset-db.ts",
-    "db:up": "docker compose up -d db",
-    "db:down": "docker compose down",
-    "db:logs": "docker compose logs -f db"
+    "db:reset": "bun run src/scripts/reset-db.ts"
   },
   "dependencies": {
     "graphql": "^16.9.0",
