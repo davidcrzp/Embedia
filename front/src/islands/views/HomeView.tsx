@@ -43,11 +43,12 @@ export default function HomeView({ initialProductos }: { initialProductos?: Prod
   }, [catalogVersion.value]);
 
   useEffect(() => {
-	const io = new IntersectionObserver((entries) => {
-	  if (!entries[0].isIntersecting) return;
+    const el = centinelaRef.current; if (!el) return;
+    const io = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
 	  if (cargando || !hayMas) return;
 	  cargarPagina(offset);
-	}, ...);
+	}, { rootMargin: '400px 0px' });
 	io.observe(el); return () => io.disconnect();
   }, [offset, cargando, hayMas]);
 
