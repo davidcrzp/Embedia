@@ -10,7 +10,7 @@ const app = new Hono();
 
 const FRONTEND = (process.env.FRONTEND_ORIGIN ?? '')
   .split(',')
-  .map((s) => s.trim())
+  .map((s) => s.trim().replace(/\/+$/, ''))
   .filter(Boolean);
 
 app.use(

@@ -38,8 +38,17 @@ export async function authRegister(nombre: string, email: string, password: stri
 }
 export async function authLogout() { await fetch(backendUrl('/auth/logout'), { method: 'POST', credentials: 'include' }); }
 export async function authMe(): Promise<import('./types').Usuario | null> {
-  const res = await fetch(backendUrl('/auth/me'), { credentials: 'include', cache: 'no-store' }); if (!res.ok) return null;
-  const data = await res.json().catch(() => null); return data?.usuario ?? null;
+  try {
+    const res = await fetch(backendUrl('/auth/me'), {
+      credentials: 'include',
+      cache: 'no-store',
+    });
+    if (!res.ok) return null;
+    const data = await res.json().catch(() => null);
+    return data?.usuario ?? null;
+  } catch {
+    return null;
+  }
 }
 export async function uploadImage(file: File): Promise<string> {
   const form = new FormData(); form.append('image', file);
